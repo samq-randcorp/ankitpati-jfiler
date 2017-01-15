@@ -12,6 +12,9 @@ class Main {
 
         try {
             switch (args[0].toLowerCase()) {
+            case "cat":
+                new Cat(commandArgs).run();
+                break;
             default:
                 System.err.println("jFiler: Unrecognised operation!");
                 break;
@@ -20,6 +23,14 @@ class Main {
 
         catch (IllegalArgumentException iae) {
             System.err.println(iae.getMessage());
+        }
+
+        catch (FileNotFoundException fnfe) {
+            System.err.println(fnfe.getMessage());
+        }
+
+        catch (IOException ioe) {
+            System.err.println(ioe.getMessage());
         }
     }
 };
