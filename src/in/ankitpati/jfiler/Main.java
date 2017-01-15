@@ -15,6 +15,9 @@ class Main {
             case "cat":
                 new Cat(commandArgs).run();
                 break;
+            case "touch":
+                new Touch(commandArgs).run();
+                break;
             default:
                 System.err.println("jFiler: Unrecognised operation!");
                 break;
