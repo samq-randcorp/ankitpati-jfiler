@@ -13,14 +13,24 @@ public class Cat {
         this.files = files;
     }
 
-    public void run() throws FileNotFoundException, IOException {
+    public void run() throws IOException {
+        ArrayList<BufferedReader> brList = new ArrayList<BufferedReader>();
+
+        for (String file : files) {
+            try {
+                BufferedReader br = new BufferedReader(
+                            new InputStreamReader(new FileInputStream(file)));
+                brList.add(br);
+            }
+            catch (FileNotFoundException fnfe) {
+                System.err.println(fnfe.getMessage());
+            }
+        }
+
         BufferedWriter bw = new BufferedWriter(
                                             new OutputStreamWriter(System.out));
 
-        for (String file : files) {
-            BufferedReader br = new BufferedReader(
-                            new InputStreamReader(new FileInputStream(file)));
-
+        for (BufferedReader br : brList) {
             for (String str = br.readLine(); str != null; str = br.readLine()) {
                 bw.append(str);
                 bw.newLine();
