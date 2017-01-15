@@ -21,6 +21,9 @@ class Main {
             case "cp":
                 new Cp(commandArgs).run();
                 break;
+            case "mv":
+                new Mv(commandArgs).run();
+                break;
             default:
                 System.err.println("jFiler: Unrecognised operation!");
                 break;
