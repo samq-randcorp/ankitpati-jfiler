@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="jFiler" default="build">
+    <property file="build.properties" />
+
+    <target name="info">
+        <echo>
+            jFiler - Java File Manager
+            Author: Ankit Pati
+            Date  : 15 January 2017
+        </echo>
+    </target>
+
+    <target name="clean">
+        <delete>
+            <fileset dir="${src}">
+                <include name="**/*.class" />
+            </fileset>
+            <fileset dir="${out}">
+                <include name="**/*.class" />
+            </fileset>
+            <filelist>
+                <file name="jFiler.jar" />
+            </filelist>
+        </delete>
+    </target>
+
+    <target name="compile" depends="info">
+        <mkdir dir="${out}" />
+        <javac destdir="${out}" source="1.8" target="1.8" includeantruntime="false">
+            <src path="${src}" />
+        </javac>
+    </target>
+
+    <target name="test" depends="compile">
+        <echo>test</echo>
+    </target>
+
+    <target name="build" depends="test">
+        <jar destfile="jFiler.jar" basedir="${out}">
+            <manifest>
+                <attribute name="Main-Class" value="in.ankitpati.jfiler.Main" />
+            </manifest>
+        </jar>
+    </target>
+</project>
