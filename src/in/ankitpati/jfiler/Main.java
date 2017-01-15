@@ -9,5 +9,17 @@ class Main {
         ArrayList<String> commandArgs =
                                     new ArrayList<String>(Arrays.asList(args));
         commandArgs.remove(0);
+
+        try {
+            switch (args[0].toLowerCase()) {
+            default:
+                System.err.println("jFiler: Unrecognised operation!");
+                break;
+            }
+        }
+
+        catch (IllegalArgumentException iae) {
+            System.err.println(iae.getMessage());
+        }
     }
 };
