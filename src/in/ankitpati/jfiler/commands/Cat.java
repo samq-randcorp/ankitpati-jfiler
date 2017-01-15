@@ -14,11 +14,21 @@ public class Cat {
     }
 
     public void run() throws FileNotFoundException, IOException {
+        BufferedWriter bw = new BufferedWriter(
+                                            new OutputStreamWriter(System.out));
+
         for (String file : files) {
             BufferedReader br = new BufferedReader(
                             new InputStreamReader(new FileInputStream(file)));
-            for (String str = br.readLine(); str != null; str = br.readLine())
-                System.out.println(str);
+
+            for (String str = br.readLine(); str != null; str = br.readLine()) {
+                bw.append(str);
+                bw.newLine();
+            }
+
+            br.close();
         }
+
+        bw.close();
     }
 };
