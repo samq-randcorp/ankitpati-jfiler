@@ -24,6 +24,9 @@ class Main {
             case "mv":
                 new Mv(commandArgs).run();
                 break;
+            case "append":
+                new Append(commandArgs).run();
+                break;
             default:
                 System.err.println("jFiler: Unrecognised operation!");
                 break;
