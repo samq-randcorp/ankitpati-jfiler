@@ -18,6 +18,9 @@ class Main {
             case "touch":
                 new Touch(commandArgs).run();
                 break;
+            case "cp":
+                new Cp(commandArgs).run();
+                break;
             default:
                 System.err.println("jFiler: Unrecognised operation!");
                 break;
@@ -33,7 +36,8 @@ class Main {
         }
 
         catch (IOException ioe) {
-            System.err.println(ioe.getMessage());
+            System.err.println(ioe.getMessage() +
+                                    " could not be read from, or written to!");
         }
     }
 };
