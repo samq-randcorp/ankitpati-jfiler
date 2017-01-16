@@ -29,7 +29,8 @@ public class Cp {
             throw new FileNotFoundException(files.get(0) +
                                                 " (No such file or directory)");
 
-        if (!Files.exists(target.getParent(), LinkOption.NOFOLLOW_LINKS))
+        if (target.getParent() != null && !Files.exists(target.getParent(),
+                                                    LinkOption.NOFOLLOW_LINKS))
             Files.createDirectories(target.getParent());
 
         if (Files.isDirectory(target, LinkOption.NOFOLLOW_LINKS))
