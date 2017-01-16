@@ -12,7 +12,7 @@ public class Cp {
         this.files = files;
     }
 
-    protected void incorrectArguments() {
+    protected void incorrectArguments() throws IllegalArgumentException {
         throw new IllegalArgumentException("Usage:\n\tcp <source> <target>");
     }
 
