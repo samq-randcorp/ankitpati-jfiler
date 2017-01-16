@@ -42,6 +42,9 @@ class Main {
             case "ls":
                 new Ls(commandArgs).run();
                 break;
+            case "chmod":
+                new Chmod(commandArgs).run();
+                break;
             default:
                 System.err.println("jFiler: Unrecognised operation!");
                 break;
@@ -54,6 +57,10 @@ class Main {
 
         catch (FileNotFoundException fnfe) {
             System.err.println(fnfe.getMessage());
+        }
+
+        catch (UnsupportedOperationException uoe) {
+            System.err.println(uoe.getMessage());
         }
 
         catch (IOException ioe) {
