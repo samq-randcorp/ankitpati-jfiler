@@ -45,6 +45,9 @@ class Main {
             case "chmod":
                 new Chmod(commandArgs).run();
                 break;
+            case "help":
+                new Help(commandArgs).run();
+                break;
             default:
                 System.err.println("jFiler: Unrecognised operation!");
                 break;
