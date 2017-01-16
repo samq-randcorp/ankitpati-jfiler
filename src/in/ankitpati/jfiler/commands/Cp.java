@@ -3,6 +3,7 @@ package in.ankitpati.jfiler.commands;
 import java.io.*;
 import java.util.*;
 import java.nio.file.*;
+import java.nio.file.attribute.*;
 
 public class Cp {
     ArrayList<String> files;
@@ -17,7 +18,34 @@ public class Cp {
     }
 
     protected void action(Path source, Path target) throws IOException {
-        Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING,
+        if (Files.isDirectory(source, LinkOption.NOFOLLOW_LINKS)) {
+            Files.walkFileTree(source, new SimpleFileVisitor<Path>() {
+                @Override
+                public FileVisitResult preVisitDirectory(Path dir,
+                                BasicFileAttributes attr) throws IOException {
+                    Files.copy(dir, target.resolve(source.relativize(dir)),
+                        StandardCopyOption.REPLACE_EXISTING,
+                        StandardCopyOption.COPY_ATTRIBUTES,
+                        LinkOption.NOFOLLOW_LINKS);
+
+                    return FileVisitResult.CONTINUE;
+                }
+
+                @Override
+                public FileVisitResult visitFile(Path file,
+                                BasicFileAttributes attr) throws IOException {
+                    Files.copy(file, target.resolve(source.relativize(file)),
+                        StandardCopyOption.REPLACE_EXISTING,
+                        StandardCopyOption.COPY_ATTRIBUTES,
+                        LinkOption.NOFOLLOW_LINKS);
+
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+        }
+
+        else
+            Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING,
                 StandardCopyOption.COPY_ATTRIBUTES, LinkOption.NOFOLLOW_LINKS);
     }
 
