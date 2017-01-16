@@ -27,6 +27,9 @@ class Main {
             case "append":
                 new Append(commandArgs).run();
                 break;
+            case "rm":
+                new Rm(commandArgs).run();
+                break;
             default:
                 System.err.println("jFiler: Unrecognised operation!");
                 break;
