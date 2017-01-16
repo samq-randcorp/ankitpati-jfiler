@@ -8,11 +8,17 @@ public class Cp {
     ArrayList<String> files;
 
     public Cp(ArrayList<String> files) throws IllegalArgumentException {
-        if (files.size() != 2)
-            throw new IllegalArgumentException(
-                                            "Usage:\n\tcp <source> <target>");
-
+        if (files.size() != 2) incorrectArguments();
         this.files = files;
+    }
+
+    protected void incorrectArguments() {
+        throw new IllegalArgumentException("Usage:\n\tcp <source> <target>");
+    }
+
+    protected void action(Path source, Path target) throws IOException {
+        Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING,
+                StandardCopyOption.COPY_ATTRIBUTES, LinkOption.NOFOLLOW_LINKS);
     }
 
     public void run() throws IOException {
@@ -30,7 +36,6 @@ public class Cp {
             target = Paths.get(target.toString(),
                                             source.getFileName().toString());
 
-        Files.copy(source, target, StandardCopyOption.REPLACE_EXISTING,
-                StandardCopyOption.COPY_ATTRIBUTES, LinkOption.NOFOLLOW_LINKS);
+        action(source, target);
     }
 };
