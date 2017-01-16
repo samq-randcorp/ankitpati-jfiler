@@ -6,6 +6,12 @@ import in.ankitpati.jfiler.commands.*;
 
 class Main {
     public static void main(String args[]) {
+        if (args.length == 0) {
+            System.err.println(
+                    "Usage:\n\tjava -jar jFiler.jar <operation> [argument]...");
+            System.exit(1);
+        }
+
         ArrayList<String> commandArgs =
                                     new ArrayList<String>(Arrays.asList(args));
         commandArgs.remove(0);
