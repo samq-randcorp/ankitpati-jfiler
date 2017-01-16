@@ -36,6 +36,9 @@ class Main {
             case "rm":
                 new Rm(commandArgs).run();
                 break;
+            case "mkdir":
+                new Mkdir(commandArgs).run();
+                break;
             default:
                 System.err.println("jFiler: Unrecognised operation!");
                 break;
