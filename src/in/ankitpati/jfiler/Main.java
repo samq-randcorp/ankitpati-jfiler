@@ -63,7 +63,8 @@ class Main {
         }
 
         catch (UnsupportedOperationException uoe) {
-            System.err.println(uoe.getMessage());
+            System.err.println(
+                        "This operation is not supported on this platform.");
         }
 
         catch (IOException ioe) {
