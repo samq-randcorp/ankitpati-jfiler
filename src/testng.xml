@@ -71,4 +71,14 @@
             </class>
         </classes>
     </test>
+
+    <test name="ls">
+        <classes>
+            <class name="in.ankitpati.jfiler.tests.TestLs">
+                <methods>
+                    <include name="testNullArgument" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
