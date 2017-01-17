@@ -30,13 +30,9 @@
     </target>
 
     <target name="clean">
+        <delete dir="${out}" />
         <delete>
-            <fileset dir="${src}">
-                <include name="**/*.class" />
-            </fileset>
-            <fileset dir="${out}">
-                <include name="**/*.class" />
-            </fileset>
+            <fileset dir="${src}" includes="**/*.class" />
             <filelist>
                 <file name="jFiler.jar" />
             </filelist>
