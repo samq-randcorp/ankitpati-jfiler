@@ -28,6 +28,7 @@ public class TestTouch {
 
     @Test
     public void testMultipleValidArguments() throws IOException {
+        files.clear();
         files.add("test/touch1.txt");
         files.add("test/touch2.txt");
         new Touch(files).run();
@@ -37,6 +38,7 @@ public class TestTouch {
 
     @Test
     public void testNonExistentDirectoryArgument() throws IOException {
+        files.clear();
         files.add("test/touch/a.txt");
         new Touch(files).run();
         Assert.assertEquals(new File(files.get(0)).exists(), true);
