@@ -106,4 +106,15 @@
             </class>
         </classes>
     </test>
+
+    <test name="cat">
+        <classes>
+            <class name="in.ankitpati.jfiler.tests.TestCat">
+                <methods>
+                    <include name="testNullArgument" />
+                    <include name="testEmptyArgument" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
