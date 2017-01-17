@@ -17,7 +17,7 @@ public class Chmod {
         if (!files.get(0).matches("^[0-7]{3}$|^[r|w|x|-]{9}$"))
             throw new IllegalArgumentException("Invalid mode");
 
-        this.files = files;
+        this.files = new ArrayList<String>(files);
 
         String permsString = this.files.remove(0);
 
