@@ -28,6 +28,7 @@ public class TestRm {
 
     @Test
     public void testMultipleValidArguments() throws IOException {
+        files.clear();
         files.add("test/touch1.txt");
         files.add("test/touch2.txt");
         new Rm(files).run();
@@ -37,6 +38,7 @@ public class TestRm {
 
     @Test
     public void testDirectoryArgument() throws IOException {
+        files.clear();
         files.add("test/touch/");
         new Rm(files).run();
         Assert.assertEquals(new File(files.get(0)).exists(), false);
