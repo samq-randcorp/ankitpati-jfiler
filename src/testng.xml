@@ -117,4 +117,15 @@
             </class>
         </classes>
     </test>
+
+    <test name="append">
+        <classes>
+            <class name="in.ankitpati.jfiler.tests.TestAppend">
+                <methods>
+                    <include name="testNullArgument" />
+                    <include name="testEmptyArgument" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
