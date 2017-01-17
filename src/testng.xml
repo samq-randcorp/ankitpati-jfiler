@@ -15,4 +15,18 @@
             </class>
         </classes>
     </test>
+
+    <test name="rm">
+        <classes>
+            <class name="in.ankitpati.jfiler.tests.TestRm">
+                <methods>
+                    <include name="testNullArgument" />
+                    <include name="testEmptyArgument" />
+                    <include name="testValidArgument" />
+                    <include name="testMultipleValidArguments" />
+                    <include name="testDirectoryArgument" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
