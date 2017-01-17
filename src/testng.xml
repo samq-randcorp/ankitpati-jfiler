@@ -92,4 +92,18 @@
             </class>
         </classes>
     </test>
+
+    <test name="chmod">
+        <classes>
+            <class name="in.ankitpati.jfiler.tests.TestChmod">
+                <methods>
+                    <include name="testNullArgument" />
+                    <include name="testEmptyArgument" />
+                    <include name="testInvalidMode" />
+                    <include name="testValidStringMode" />
+                    <include name="testValidNumericMode" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
