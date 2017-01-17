@@ -34,4 +34,11 @@ public class TestTouch {
         for (String file : files)
             Assert.assertEquals(new File(file).exists(), true);
     }
+
+    @Test
+    public void testNonExistentDirectoryArgument() throws IOException {
+        files.add("test/touch/a.txt");
+        new Touch(files).run();
+        Assert.assertEquals(new File(files.get(0)).exists(), true);
+    }
 };
