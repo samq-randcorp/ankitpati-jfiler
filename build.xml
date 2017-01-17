@@ -48,9 +48,11 @@
     </target>
 
     <target name="test" depends="compile">
+        <mkdir dir="${test}" />
         <testng outputdir="${out}" classpathref="classpath.test">
             <xmlfileset dir="${src}" includes="testng.xml" />
         </testng>
+        <delete dir="${test}" />
     </target>
 
     <target name="build" depends="compile">
