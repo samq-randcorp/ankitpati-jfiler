@@ -2,6 +2,25 @@
 <project name="jFiler" default="build">
     <property file="build.properties" />
 
+    <taskdef name="testng" classname="org.testng.TestNGAntTask">
+        <classpath>
+            <pathelement location="lib/testng.jar" />
+        </classpath>
+    </taskdef>
+
+    <path id="classpath.base" />
+
+    <path id="classpath.test">
+        <fileset dir="${lib}">
+            <include name="**/*.jar" />
+        </fileset>
+
+        <pathelement location="${out}" />
+        <pathelement location="${src}" />
+
+        <path refid="classpath.base" />
+    </path>
+
     <target name="info">
         <echo>
             jFiler - Java File Manager
@@ -26,16 +45,19 @@
 
     <target name="compile" depends="info">
         <mkdir dir="${out}" />
-        <javac destdir="${out}" source="1.8" target="1.8" includeantruntime="false">
-            <src path="${src}" />
+        <javac srcdir="${src}" destdir="${out}" source="1.8" target="1.8"
+                                                    includeantruntime="false">
+            <classpath refid="classpath.test" />
         </javac>
     </target>
 
     <target name="test" depends="compile">
-        <echo>test</echo>
+        <testng outputdir="${out}" classpathref="classpath.test">
+            <xmlfileset dir="${src}" includes="testng.xml" />
+        </testng>
     </target>
 
-    <target name="build" depends="test">
+    <target name="build" depends="compile">
         <jar destfile="jFiler.jar" basedir="${out}">
             <manifest>
                 <attribute name="Main-Class" value="in.ankitpati.jfiler.Main" />
