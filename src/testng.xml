@@ -43,4 +43,18 @@
             </class>
         </classes>
     </test>
+
+    <test name="mv">
+        <classes>
+            <class name="in.ankitpati.jfiler.tests.TestMv">
+                <methods>
+                    <include name="testNullArgument" />
+                    <include name="testEmptyArgument" />
+                    <include name="testValidArguments" />
+                    <include name="testMultipleArguments" />
+                    <include name="testDirectoryArguments" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
