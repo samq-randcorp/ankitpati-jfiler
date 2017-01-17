@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="jFiler Tests">
+    <test name="touch">
+        <classes>
+            <class name="in.ankitpati.jfiler.tests.TestTouch" />
+        </classes>
+    </test>
+</suite>
