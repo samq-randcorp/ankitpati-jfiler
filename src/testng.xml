@@ -57,4 +57,18 @@
             </class>
         </classes>
     </test>
+
+    <test name="mkdir">
+        <classes>
+            <class name="in.ankitpati.jfiler.tests.TestMkdir">
+                <methods>
+                    <include name="testNullArgument" />
+                    <include name="testEmptyArgument" />
+                    <include name="testValidArgument" />
+                    <include name="testMultipleValidArguments" />
+                    <include name="testNonExistentDirectoryArgument" />
+                </methods>
+            </class>
+        </classes>
+    </test>
 </suite>
