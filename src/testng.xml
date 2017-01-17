@@ -4,7 +4,15 @@
 <suite name="jFiler Tests">
     <test name="touch">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestTouch" />
+            <class name="in.ankitpati.jfiler.tests.TestTouch">
+                <methods>
+                    <include name="testNullArgument" />
+                    <include name="testEmptyArgument" />
+                    <include name="testValidArgument" />
+                    <include name="testMultipleValidArguments" />
+                    <include name="testNonExistentDirectoryArgument" />
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
