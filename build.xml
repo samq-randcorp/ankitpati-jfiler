@@ -34,7 +34,7 @@
         <delete>
             <fileset dir="${src}" includes="**/*.class" />
             <filelist>
-                <file name="jFiler.jar" />
+                <file name="${jar}.jar" />
             </filelist>
         </delete>
     </target>
@@ -56,9 +56,9 @@
     </target>
 
     <target name="build" depends="compile">
-        <jar destfile="jFiler.jar" basedir="${out}">
+        <jar destfile="${jar}.jar" basedir="${out}">
             <manifest>
-                <attribute name="Main-Class" value="in.ankitpati.jfiler.Main" />
+                <attribute name="Main-Class" value="${package}.Main" />
             </manifest>
         </jar>
     </target>
