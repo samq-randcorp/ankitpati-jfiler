@@ -17,6 +17,11 @@ public class Cat {
         ArrayList<BufferedReader> brList = new ArrayList<BufferedReader>();
 
         for (String file : files) {
+            if (new File(file).isDirectory()) {
+                System.err.println(file + ": Is a directory.");
+                continue;
+            }
+
             try {
                 BufferedReader br = new BufferedReader(
                             new InputStreamReader(new FileInputStream(file)));
