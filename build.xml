@@ -49,14 +49,15 @@
 
     <target name="test" depends="compile">
         <mkdir dir="${test}" />
-        <testng outputdir="${out}" classpathref="classpath.test">
+        <testng outputdir="${out}/TestNG" classpathref="classpath.test">
             <xmlfileset dir="${src}" includes="testng.xml" />
         </testng>
         <delete dir="${test}" />
     </target>
 
     <target name="build" depends="compile">
-        <jar destfile="${jar}.jar" basedir="${out}">
+        <jar destfile="${jar}.jar" basedir="${out}"
+                                    excludes="TestNG/** ${packageDir}/tests/**">
             <manifest>
                 <attribute name="Main-Class" value="${package}.Main" />
             </manifest>
