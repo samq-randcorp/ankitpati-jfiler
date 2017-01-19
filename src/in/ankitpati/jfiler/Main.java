@@ -45,6 +45,9 @@ class Main {
             case "chmod":
                 new Chmod(commandArgs).run();
                 break;
+            case "ll":
+                new Ll(commandArgs).run();
+                break;
             case "help":
                 new Help(commandArgs).run();
                 break;
