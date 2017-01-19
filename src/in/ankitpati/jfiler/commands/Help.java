@@ -42,6 +42,9 @@ public class Help {
             case "chmod":
                 System.out.println("Usage:\n\tchmod <permissions> <target>...");
                 break;
+            case "ll":
+                System.out.println("Usage:\n\tll [target]...");
+                break;
             case "help":
                 System.out.println("Usage:\n\thelp <command>...");
                 break;
