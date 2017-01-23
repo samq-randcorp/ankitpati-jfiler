@@ -7,8 +7,6 @@ import org.testng.annotations.*;
 import in.ankitpati.jfiler.commands.*;
 
 public class TestHelp {
-    ArrayList<String> files = new ArrayList<String>();
-
     @Test(expectedExceptions = NullPointerException.class)
     public void testNullArgument() {
         new Help(null);
@@ -16,6 +14,6 @@ public class TestHelp {
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testEmptyArgument() {
-        new Help(files);
+        new Help(new ArrayList<String>());
     }
 };

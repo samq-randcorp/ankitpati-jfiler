@@ -7,13 +7,18 @@ import org.testng.annotations.*;
 import in.ankitpati.jfiler.commands.*;
 
 public class TestMkdir {
-    ArrayList<String> files = new ArrayList<String>();
+    ArrayList<String> files;
 
     @BeforeClass
     public void setup() throws IOException {
+        files = new ArrayList<String>();
         files.add("test");
         new Mkdir(files).run();
-        files.clear();
+    }
+
+    @BeforeMethod
+    public void initialiseFiles() {
+        files = new ArrayList<String>();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -35,7 +40,6 @@ public class TestMkdir {
 
     @Test
     public void testMultipleValidArguments() throws IOException {
-        files.clear();
         files.add("test/mkdir1");
         files.add("test/mkdir2");
         new Mkdir(files).run();
@@ -45,15 +49,19 @@ public class TestMkdir {
 
     @Test
     public void testNonExistentDirectoryArgument() throws IOException {
-        files.clear();
         files.add("test/mkdir/a");
         new Mkdir(files).run();
         Assert.assertEquals(new File(files.get(0)).isDirectory(), true);
     }
 
+    @AfterMethod
+    public void destroyFiles() {
+        files = null;
+    }
+
     @AfterClass
     public void teardown() throws IOException {
-        files.clear();
+        files = new ArrayList<String>();
         files.add("test/");
         new Rm(files).run();
     }

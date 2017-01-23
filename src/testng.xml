@@ -4,138 +4,67 @@
 <suite name="jFiler Tests">
     <test name="touch">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestTouch">
-                <methods>
-                    <include name="testNullArgument" />
-                    <include name="testEmptyArgument" />
-                    <include name="testValidArgument" />
-                    <include name="testMultipleValidArguments" />
-                    <include name="testNonExistentDirectoryArgument" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestTouch" />
         </classes>
     </test>
 
     <test name="rm">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestRm">
-                <methods>
-                    <include name="testNullArgument" />
-                    <include name="testEmptyArgument" />
-                    <include name="testValidArgument" />
-                    <include name="testMultipleValidArguments" />
-                    <include name="testDirectoryArgument" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestRm" />
         </classes>
     </test>
 
     <test name="cp">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestCp">
-                <methods>
-                    <include name="testNullArgument" />
-                    <include name="testEmptyArgument" />
-                    <include name="testValidArguments" />
-                    <include name="testMultipleArguments" />
-                    <include name="testDirectoryArguments" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestCp" />
         </classes>
     </test>
 
     <test name="mv">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestMv">
-                <methods>
-                    <include name="testNullArgument" />
-                    <include name="testEmptyArgument" />
-                    <include name="testValidArguments" />
-                    <include name="testMultipleArguments" />
-                    <include name="testDirectoryArguments" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestMv" />
         </classes>
     </test>
 
     <test name="mkdir">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestMkdir">
-                <methods>
-                    <include name="testNullArgument" />
-                    <include name="testEmptyArgument" />
-                    <include name="testValidArgument" />
-                    <include name="testMultipleValidArguments" />
-                    <include name="testNonExistentDirectoryArgument" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestMkdir" />
         </classes>
     </test>
 
     <test name="ls">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestLs">
-                <methods>
-                    <include name="testNullArgument" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestLs" />
         </classes>
     </test>
 
     <test name="help">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestHelp">
-                <methods>
-                    <include name="testNullArgument" />
-                    <include name="testEmptyArgument" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestHelp" />
         </classes>
     </test>
 
     <test name="chmod">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestChmod">
-                <methods>
-                    <include name="testNullArgument" />
-                    <include name="testEmptyArgument" />
-                    <include name="testInvalidMode" />
-                    <include name="testValidStringMode" />
-                    <include name="testValidNumericMode" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestChmod" />
         </classes>
     </test>
 
     <test name="cat">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestCat">
-                <methods>
-                    <include name="testNullArgument" />
-                    <include name="testEmptyArgument" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestCat" />
         </classes>
     </test>
 
     <test name="append">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestAppend">
-                <methods>
-                    <include name="testNullArgument" />
-                    <include name="testEmptyArgument" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestAppend" />
         </classes>
     </test>
 
     <test name="ll">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestLs">
-                <methods>
-                    <include name="testNullArgument" />
-                </methods>
-            </class>
+            <class name="in.ankitpati.jfiler.tests.TestLs" />
         </classes>
     </test>
 </suite>

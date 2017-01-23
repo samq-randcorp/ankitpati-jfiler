@@ -9,13 +9,18 @@ import org.testng.annotations.*;
 import in.ankitpati.jfiler.commands.*;
 
 public class TestChmod {
-    ArrayList<String> files = new ArrayList<String>();
+    ArrayList<String> files;
 
     @BeforeClass
     public void setup() throws IOException {
+        files = new ArrayList<String>();
         files.add("test/chmod.txt");
         new Touch(files).run();
-        files.clear();
+    }
+
+    @BeforeMethod
+    public void initialiseFiles() {
+        files = new ArrayList<String>();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -37,7 +42,6 @@ public class TestChmod {
 
     @Test
     public void testValidStringMode() throws IOException {
-        files.clear();
         files.add("rwxrwxrwx");
         files.add("test/chmod.txt");
 
@@ -57,7 +61,6 @@ public class TestChmod {
 
     @Test
     public void testValidNumericMode() throws IOException {
-        files.clear();
         files.add("644");
         files.add("test/chmod.txt");
 
@@ -75,9 +78,14 @@ public class TestChmod {
             LinkOption.NOFOLLOW_LINKS)), "rw-r--r--");
     }
 
+    @AfterMethod
+    public void destroyFiles() {
+        files = null;
+    }
+
     @AfterClass
     public void teardown() throws IOException {
-        files.clear();
+        files = new ArrayList<String>();
         files.add("test/");
         new Rm(files).run();
     }

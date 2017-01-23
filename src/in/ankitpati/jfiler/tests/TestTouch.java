@@ -7,13 +7,18 @@ import org.testng.annotations.*;
 import in.ankitpati.jfiler.commands.*;
 
 public class TestTouch {
-    ArrayList<String> files = new ArrayList<String>();
+    ArrayList<String> files;
 
     @BeforeClass
     public void setup() throws IOException {
+        files = new ArrayList<String>();
         files.add("test");
         new Mkdir(files).run();
-        files.clear();
+    }
+
+    @BeforeMethod
+    public void initialiseFiles() {
+        files = new ArrayList<String>();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -35,7 +40,6 @@ public class TestTouch {
 
     @Test
     public void testMultipleValidArguments() throws IOException {
-        files.clear();
         files.add("test/touch1.txt");
         files.add("test/touch2.txt");
         new Touch(files).run();
@@ -45,15 +49,19 @@ public class TestTouch {
 
     @Test
     public void testNonExistentDirectoryArgument() throws IOException {
-        files.clear();
         files.add("test/touch/a.txt");
         new Touch(files).run();
         Assert.assertEquals(new File(files.get(0)).exists(), true);
     }
 
+    @AfterMethod
+    public void destroyFiles() {
+        files = null;
+    }
+
     @AfterClass
     public void teardown() throws IOException {
-        files.clear();
+        files = new ArrayList<String>();
         files.add("test/");
         new Rm(files).run();
     }

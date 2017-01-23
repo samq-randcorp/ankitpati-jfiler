@@ -7,16 +7,21 @@ import org.testng.annotations.*;
 import in.ankitpati.jfiler.commands.*;
 
 public class TestRm {
-    ArrayList<String> files = new ArrayList<String>();
+    ArrayList<String> files;
 
     @BeforeClass
     public void setup() throws IOException {
+        files = new ArrayList<String>();
         files.add("test/rm0.txt");
         files.add("test/rm1.txt");
         files.add("test/rm2.txt");
         files.add("test/rm/rm3.txt");
         new Touch(files).run();
-        files.clear();
+    }
+
+    @BeforeMethod
+    public void initialiseFiles() {
+        files = new ArrayList<String>();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -38,7 +43,6 @@ public class TestRm {
 
     @Test
     public void testMultipleValidArguments() throws IOException {
-        files.clear();
         files.add("test/rm1.txt");
         files.add("test/rm2.txt");
         new Rm(files).run();
@@ -48,15 +52,19 @@ public class TestRm {
 
     @Test
     public void testDirectoryArgument() throws IOException {
-        files.clear();
         files.add("test/rm/");
         new Rm(files).run();
         Assert.assertEquals(new File(files.get(0)).exists(), false);
     }
 
+    @AfterMethod
+    public void destroyFiles() {
+        files = null;
+    }
+
     @AfterClass
     public void teardown() throws IOException {
-        files.clear();
+        files = new ArrayList<String>();
         files.add("test/");
         new Rm(files).run();
     }

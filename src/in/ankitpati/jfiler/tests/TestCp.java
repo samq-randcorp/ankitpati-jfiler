@@ -7,13 +7,18 @@ import org.testng.annotations.*;
 import in.ankitpati.jfiler.commands.*;
 
 public class TestCp {
-    ArrayList<String> files = new ArrayList<String>();
+    ArrayList<String> files;
 
     @BeforeClass
     public void setup() throws IOException {
+        files = new ArrayList<String>();
         files.add("test");
         new Mkdir(files).run();
-        files.clear();
+    }
+
+    @BeforeMethod
+    public void initialiseFiles() {
+        files = new ArrayList<String>();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -36,23 +41,29 @@ public class TestCp {
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testMultipleArguments() throws IOException {
+        files.add("test/cp0.txt");
         files.add("test/cp1.txt");
         files.add("test/cp2.txt");
+        files.add("test/cp3.txt");
         new Cp(files);
     }
 
     @Test
     public void testDirectoryArguments() throws IOException {
-        files.clear();
         files.add("out/");
         files.add("test/");
         new Cp(files).run();
         Assert.assertEquals(new File("test/out/in").isDirectory(), true);
     }
 
+    @AfterMethod
+    public void destroyFiles() {
+        files = null;
+    }
+
     @AfterClass
     public void teardown() throws IOException {
-        files.clear();
+        files = new ArrayList<String>();
         files.add("test/");
         new Rm(files).run();
     }
