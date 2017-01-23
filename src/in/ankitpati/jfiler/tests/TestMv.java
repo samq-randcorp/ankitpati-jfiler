@@ -9,6 +9,19 @@ import in.ankitpati.jfiler.commands.*;
 public class TestMv {
     ArrayList<String> files = new ArrayList<String>();
 
+    @BeforeClass
+    public void setup() throws IOException {
+        files.add("test/mv0.txt");
+        files.add("test/mv1.txt");
+        new Touch(files).run();
+        files.clear();
+
+        files.add("out/");
+        files.add("test/");
+        new Cp(files).run();
+        files.clear();
+    }
+
     @Test(expectedExceptions = NullPointerException.class)
     public void testNullArgument() {
         new Mv(null);
@@ -21,16 +34,16 @@ public class TestMv {
 
     @Test
     public void testValidArguments() throws IOException {
-        files.add("test/cp.dat");
-        files.add("test/mv.dat");
+        files.add("test/mv0.txt");
+        files.add("test/mv1.txt");
         new Mv(files).run();
         Assert.assertEquals(new File(files.get(1)).exists(), true);
     }
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testMultipleArguments() throws IOException {
-        files.add("test/mv1.txt");
         files.add("test/mv2.txt");
+        files.add("test/mv3.txt");
         new Mv(files);
     }
 
@@ -41,5 +54,12 @@ public class TestMv {
         files.add("test/");
         new Mv(files).run();
         Assert.assertEquals(new File("test/in").isDirectory(), true);
+    }
+
+    @AfterClass
+    public void teardown() throws IOException {
+        files.clear();
+        files.add("test/");
+        new Rm(files).run();
     }
 };

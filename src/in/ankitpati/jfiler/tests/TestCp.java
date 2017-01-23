@@ -9,6 +9,13 @@ import in.ankitpati.jfiler.commands.*;
 public class TestCp {
     ArrayList<String> files = new ArrayList<String>();
 
+    @BeforeClass
+    public void setup() throws IOException {
+        files.add("test");
+        new Mkdir(files).run();
+        files.clear();
+    }
+
     @Test(expectedExceptions = NullPointerException.class)
     public void testNullArgument() {
         new Cp(null);
@@ -41,5 +48,12 @@ public class TestCp {
         files.add("test/");
         new Cp(files).run();
         Assert.assertEquals(new File("test/out/in").isDirectory(), true);
+    }
+
+    @AfterClass
+    public void teardown() throws IOException {
+        files.clear();
+        files.add("test/");
+        new Rm(files).run();
     }
 };

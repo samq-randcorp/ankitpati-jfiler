@@ -11,6 +11,13 @@ import in.ankitpati.jfiler.commands.*;
 public class TestChmod {
     ArrayList<String> files = new ArrayList<String>();
 
+    @BeforeClass
+    public void setup() throws IOException {
+        files.add("test/chmod.txt");
+        new Touch(files).run();
+        files.clear();
+    }
+
     @Test(expectedExceptions = NullPointerException.class)
     public void testNullArgument() {
         new Chmod(null);
@@ -24,7 +31,7 @@ public class TestChmod {
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testInvalidMode() {
         files.add("chmod");
-        files.add("test/mv.dat");
+        files.add("test/chmod.txt");
         new Chmod(files);
     }
 
@@ -32,7 +39,7 @@ public class TestChmod {
     public void testValidStringMode() throws IOException {
         files.clear();
         files.add("rwxrwxrwx");
-        files.add("test/mv.dat");
+        files.add("test/chmod.txt");
 
         try {
             new Chmod(files).run();
@@ -52,7 +59,7 @@ public class TestChmod {
     public void testValidNumericMode() throws IOException {
         files.clear();
         files.add("644");
-        files.add("test/mv.dat");
+        files.add("test/chmod.txt");
 
         try {
             new Chmod(files).run();
@@ -66,5 +73,12 @@ public class TestChmod {
         Assert.assertEquals(PosixFilePermissions.toString(
             Files.getPosixFilePermissions(Paths.get(files.get(1)),
             LinkOption.NOFOLLOW_LINKS)), "rw-r--r--");
+    }
+
+    @AfterClass
+    public void teardown() throws IOException {
+        files.clear();
+        files.add("test/");
+        new Rm(files).run();
     }
 };

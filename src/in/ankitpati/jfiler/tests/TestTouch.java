@@ -9,6 +9,13 @@ import in.ankitpati.jfiler.commands.*;
 public class TestTouch {
     ArrayList<String> files = new ArrayList<String>();
 
+    @BeforeClass
+    public void setup() throws IOException {
+        files.add("test");
+        new Mkdir(files).run();
+        files.clear();
+    }
+
     @Test(expectedExceptions = NullPointerException.class)
     public void testNullArgument() {
         new Touch(null);
@@ -42,5 +49,12 @@ public class TestTouch {
         files.add("test/touch/a.txt");
         new Touch(files).run();
         Assert.assertEquals(new File(files.get(0)).exists(), true);
+    }
+
+    @AfterClass
+    public void teardown() throws IOException {
+        files.clear();
+        files.add("test/");
+        new Rm(files).run();
     }
 };
