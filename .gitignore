@@ -32,4 +32,3 @@ local.properties
 
 # jFiler
 out/
-!lib/*.jar
