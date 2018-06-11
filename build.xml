@@ -37,7 +37,7 @@
         <ivy:retrieve />
     </target>
 
-    <target name="compile" depends="info,resolve">
+    <target name="compile" depends="resolve">
         <mkdir dir="${out}" />
         <javac srcdir="${src}" destdir="${out}" source="1.8" target="1.8"
                                                     includeantruntime="false">
@@ -53,7 +53,7 @@
         </testng>
     </target>
 
-    <target name="build" depends="compile">
+    <target name="build" depends="info,compile">
         <jar destfile="${jar}.jar" basedir="${out}"
                                     excludes="TestNG/** ${packageDir}/tests/**">
             <manifest>
