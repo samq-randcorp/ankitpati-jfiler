@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="jFiler" default="build">
+<project xmlns:ivy="antlib:org.apache.ivy.ant" name="jFiler" default="build">
     <property file="build.properties" />
-
-    <taskdef name="testng" classname="org.testng.TestNGAntTask">
-        <classpath>
-            <pathelement location="lib/testng.jar" />
-        </classpath>
-    </taskdef>
 
     <path id="classpath.base" />
 
@@ -39,7 +33,11 @@
         </delete>
     </target>
 
-    <target name="compile" depends="info">
+    <target name="resolve">
+        <ivy:retrieve />
+    </target>
+
+    <target name="compile" depends="info,resolve">
         <mkdir dir="${out}" />
         <javac srcdir="${src}" destdir="${out}" source="1.8" target="1.8"
                                                     includeantruntime="false">
@@ -48,6 +46,8 @@
     </target>
 
     <target name="test" depends="compile">
+        <taskdef name="testng" classpathref="classpath.test"
+                                        classname="org.testng.TestNGAntTask" />
         <testng outputdir="${out}/TestNG" classpathref="classpath.test">
             <xmlfileset dir="${src}" includes="testng.xml" />
         </testng>
