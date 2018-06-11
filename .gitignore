@@ -30,5 +30,11 @@ local.properties
 .classpath
 .factorypath
 
+# Ant
+.ant-targets-build.xml
+build/
+dist/
+lib/
+
 # jFiler
 out/
