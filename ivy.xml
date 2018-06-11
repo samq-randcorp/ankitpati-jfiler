@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ivy-module version="2.4">
+    <info organisation="ankitpati" module="jFiler" />
+
+    <dependencies>
+        <dependency org="org.testng" name="testng"     rev="latest.release" />
+        <dependency org="com.beust"  name="jcommander" rev="latest.release" />
+        <dependency org="junit"      name="junit"      rev="latest.release" />
+        <dependency org="org.yaml"   name="snakeyaml"  rev="latest.release" />
+    </dependencies>
+</ivy-module>
