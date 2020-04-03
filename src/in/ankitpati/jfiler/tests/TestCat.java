@@ -12,6 +12,6 @@ public class TestCat {
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testEmptyArgument() {
-        new Cat(new ArrayList<String>());
+        new Cat(new ArrayList<>());
     }
-};
+}

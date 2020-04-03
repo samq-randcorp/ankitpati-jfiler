@@ -16,4 +16,4 @@ public class Mv extends Cp {
     protected void action(Path source, Path target) throws IOException {
         Files.move(source, target, StandardCopyOption.REPLACE_EXISTING);
     }
-};
+}

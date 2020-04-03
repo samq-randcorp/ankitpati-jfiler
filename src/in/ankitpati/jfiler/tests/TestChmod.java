@@ -13,14 +13,14 @@ public class TestChmod {
 
     @BeforeClass
     public void setup() throws IOException {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
         files.add("test/chmod.txt");
         new Touch(files).run();
     }
 
     @BeforeMethod
     public void initialiseFiles() {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -85,8 +85,8 @@ public class TestChmod {
 
     @AfterClass
     public void teardown() throws IOException {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
         files.add("test/");
         new Rm(files).run();
     }
-};
+}

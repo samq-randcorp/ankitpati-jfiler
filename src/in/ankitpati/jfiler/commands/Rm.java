@@ -45,4 +45,4 @@ public class Rm {
             else Files.delete(target);
         }
     }
-};
+}

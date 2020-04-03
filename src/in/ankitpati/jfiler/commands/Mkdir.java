@@ -22,4 +22,4 @@ public class Mkdir {
                 Files.createDirectories(target);
         }
     }
-};
+}

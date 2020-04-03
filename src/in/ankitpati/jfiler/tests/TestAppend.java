@@ -12,6 +12,6 @@ public class TestAppend {
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testEmptyArgument() {
-        new Append(new ArrayList<String>());
+        new Append(new ArrayList<>());
     }
-};
+}

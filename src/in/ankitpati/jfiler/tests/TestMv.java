@@ -11,12 +11,12 @@ public class TestMv {
 
     @BeforeClass
     public void setup() throws IOException {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
         files.add("test/mv0.txt");
         files.add("test/mv1.txt");
         new Touch(files).run();
 
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
         files.add("out/");
         files.add("test/");
         new Cp(files).run();
@@ -24,7 +24,7 @@ public class TestMv {
 
     @BeforeMethod
     public void initialiseFiles() {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -69,8 +69,8 @@ public class TestMv {
 
     @AfterClass
     public void teardown() throws IOException {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
         files.add("test/");
         new Rm(files).run();
     }
-};
+}

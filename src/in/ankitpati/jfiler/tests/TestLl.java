@@ -8,4 +8,4 @@ public class TestLl {
     public void testNullArgument() {
         new Ls(null);
     }
-};
+}

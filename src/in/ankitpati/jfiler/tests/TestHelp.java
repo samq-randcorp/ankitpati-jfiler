@@ -12,6 +12,6 @@ public class TestHelp {
 
     @Test(expectedExceptions = IllegalArgumentException.class)
     public void testEmptyArgument() {
-        new Help(new ArrayList<String>());
+        new Help(new ArrayList<>());
     }
-};
+}

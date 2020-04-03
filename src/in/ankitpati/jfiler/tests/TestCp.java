@@ -11,14 +11,14 @@ public class TestCp {
 
     @BeforeClass
     public void setup() throws IOException {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
         files.add("test");
         new Mkdir(files).run();
     }
 
     @BeforeMethod
     public void initialiseFiles() {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -63,8 +63,8 @@ public class TestCp {
 
     @AfterClass
     public void teardown() throws IOException {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
         files.add("test/");
         new Rm(files).run();
     }
-};
+}

@@ -11,7 +11,7 @@ public class TestRm {
 
     @BeforeClass
     public void setup() throws IOException {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
         files.add("test/rm0.txt");
         files.add("test/rm1.txt");
         files.add("test/rm2.txt");
@@ -21,7 +21,7 @@ public class TestRm {
 
     @BeforeMethod
     public void initialiseFiles() {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
     }
 
     @Test(expectedExceptions = NullPointerException.class)
@@ -64,8 +64,8 @@ public class TestRm {
 
     @AfterClass
     public void teardown() throws IOException {
-        files = new ArrayList<String>();
+        files = new ArrayList<>();
         files.add("test/");
         new Rm(files).run();
     }
-};
+}

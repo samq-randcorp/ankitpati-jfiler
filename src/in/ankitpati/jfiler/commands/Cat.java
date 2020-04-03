@@ -14,7 +14,7 @@ public class Cat {
     }
 
     public void run() throws IOException {
-        ArrayList<BufferedReader> brList = new ArrayList<BufferedReader>();
+        ArrayList<BufferedReader> brList = new ArrayList<>();
 
         for (String file : files) {
             if (new File(file).isDirectory()) {
@@ -46,4 +46,4 @@ public class Cat {
 
         bw.close();
     }
-};
+}

@@ -12,8 +12,7 @@ class Main {
             System.exit(1);
         }
 
-        ArrayList<String> commandArgs =
-                                    new ArrayList<String>(Arrays.asList(args));
+        ArrayList<String> commandArgs = new ArrayList<>(Arrays.asList(args));
         commandArgs.remove(0);
 
         try {
@@ -75,4 +74,4 @@ class Main {
                                     " could not be read from, or written to!");
         }
     }
-};
+}

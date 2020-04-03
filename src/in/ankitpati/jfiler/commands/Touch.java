@@ -26,4 +26,4 @@ public class Touch {
                 System.err.println(file + ": File/Directory exists.");
         }
     }
-};
+}
