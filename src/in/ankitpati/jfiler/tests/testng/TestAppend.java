@@ -1,4 +1,4 @@
-package in.ankitpati.jfiler.tests;
+package in.ankitpati.jfiler.tests.testng;
 
 import java.util.*;
 import org.testng.annotations.*;

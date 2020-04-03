@@ -4,67 +4,67 @@
 <suite name="jFiler Tests">
     <test name="touch">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestTouch" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestTouch" />
         </classes>
     </test>
 
     <test name="rm">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestRm" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestRm" />
         </classes>
     </test>
 
     <test name="cp">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestCp" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestCp" />
         </classes>
     </test>
 
     <test name="mv">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestMv" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestMv" />
         </classes>
     </test>
 
     <test name="mkdir">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestMkdir" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestMkdir" />
         </classes>
     </test>
 
     <test name="ls">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestLs" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestLs" />
         </classes>
     </test>
 
     <test name="help">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestHelp" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestHelp" />
         </classes>
     </test>
 
     <test name="chmod">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestChmod" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestChmod" />
         </classes>
     </test>
 
     <test name="cat">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestCat" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestCat" />
         </classes>
     </test>
 
     <test name="append">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestAppend" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestAppend" />
         </classes>
     </test>
 
     <test name="ll">
         <classes>
-            <class name="in.ankitpati.jfiler.tests.TestLs" />
+            <class name="in.ankitpati.jfiler.tests.testng.TestLs" />
         </classes>
     </test>
 </suite>

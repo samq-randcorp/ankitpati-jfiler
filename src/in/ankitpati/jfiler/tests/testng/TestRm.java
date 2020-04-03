@@ -1,4 +1,4 @@
-package in.ankitpati.jfiler.tests;
+package in.ankitpati.jfiler.tests.testng;
 
 import java.io.*;
 import java.util.*;
