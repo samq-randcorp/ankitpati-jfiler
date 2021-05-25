@@ -29,15 +29,11 @@ jobs:
         mv ./apache-ivy-2.5.0/ivy-2.5.0.jar /usr/share/ant/lib
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
-    - name: WhiteSource Prioritize Scan
+    - name: WhiteSource  Scan
       env:
         WS_APIKEY: ${{secrets.APIKEY}}
       run: |
         curl -LJO https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar
         echo UA downloaded successfully
-        WARFILE=$(find ./ -type f -wholename "*.war")
-        export WS_ENABLEIMPACTANALYSIS=true
-        export WS_REQUIREKNOWNSHA1=false
-        export WS_RESOLVEALLDEPENDENCIES=false
-        export WS_INCLUDES=**/*.jar
-        java -jar wss-unified-agent.jar -appPath /home/runner/work/ankitpati-jfiler/ankitpati-jfiler/jFiler.jar -d ./ -product GH_${{ github.event.repository.name }} -project ${{ github.ref }}_Prioritize -iaLanguage Java
+        export WS_ANT_IVY_RESOLVEDEPENDENCIES=true
+        java -jar wss-unified-agent.jar -d ./ -product GH_${{ github.event.repository.name }} -project ${{ github.ref }}
