@@ -40,4 +40,4 @@ jobs:
         export WS_REQUIREKNOWNSHA1=false
         export WS_RESOLVEALLDEPENDENCIES=false
         export WS_INCLUDES=**/*.jar
-        java -jar wss-unified-agent.jar -appPath $WARFILE -d ./ -product GH_${{ github.event.repository.name }} -project ${{ github.ref }}_Prioritize -iaLanguage Java
+        java -jar wss-unified-agent.jar -appPath /home/runner/work/ankitpati-jfiler/ankitpati-jfiler/jFiler.jar -d ./ -product GH_${{ github.event.repository.name }} -project ${{ github.ref }}_Prioritize -iaLanguage Java
