@@ -36,4 +36,5 @@ jobs:
         export WS_ANT_RESOLVEDEPENDENCIES=true
         export WS_ANT_IVY_RESOLVEDEPENDENCIES=true
         export WS_FILESYSTEMSCAN=false
+        export WS_INCLUDES=**/*.jar
         java -jar wss-unified-agent.jar -appPath /home/runner/work/ankitpati-jfiler/ankitpati-jfiler/jFiler.jar -d ./ -product GH_${{ github.event.repository.name }} -project ${{ github.ref }}_Prioritize-ResolveDep
