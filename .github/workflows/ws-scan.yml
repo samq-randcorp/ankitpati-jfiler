@@ -1,13 +1,9 @@
 # This workflow will build a Java project with Ant
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-ant
 
-name: Java CI
+name: WS-Scan-UAonly
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push]
 
 jobs:
   build:
@@ -32,8 +28,10 @@ jobs:
     - name: WhiteSource  Scan
       env:
         WS_APIKEY: ${{secrets.APIKEY}}
+        WS_USERKEY: ${{secrets.USERKEY}}
       run: |
         curl -LJO https://github.com/whitesource/unified-agent-distribution/releases/latest/download/wss-unified-agent.jar
         echo UA downloaded successfully
         export WS_ANT_IVY_RESOLVEDEPENDENCIES=true
+        export WS_FILESYSTEMSCAN=false
         java -jar wss-unified-agent.jar -d ./ -product GH_${{ github.event.repository.name }} -project ${{ github.ref }}
