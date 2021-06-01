@@ -21,6 +21,7 @@ jobs:
         curl -LJO https://apache.osuosl.org//ant/ivy/2.5.0/apache-ivy-2.5.0-bin.zip
         unzip ./apache-ivy-2.5.0-bin.zip
         mv ./apache-ivy-2.5.0/ivy-2.5.0.jar /usr/share/ant/lib
+        rm -rf ./apache-ivy-2.5.0 && rm ./apache-ivy-2.5.0-bin.zip
     - name: Build with Ant
       run: ant -noinput -buildfile build.xml
     - name: WhiteSource Prioritize Scan
